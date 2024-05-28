@@ -15,21 +15,24 @@ const Newsboard = ({ category }) => {
           throw new Error("API key is missing");
         }
         const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`;
-
+  
         const response = await fetch(url);
+        console.log("Response status:", response.status); // Add this line to log the response status
+        
         if (!response.ok) {
-          throw new Error(`Error not find: ${response.statusText}`);
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
-
+  
         const data = await response.json();
         setArticles(data.articles);
       } catch (error) {
         setError(error.message);
       }
     };
-
+  
     fetchNews();
   }, [category]);
+  
 
   return (
     <div>
