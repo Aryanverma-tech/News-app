@@ -11,15 +11,15 @@ const Newsboard = ({ category }) => {
     const fetchNews = async () => {
       try {
         const apiKey = import.meta.env.VITE_NEWSAPI_KEY;
-        // if (!apiKey) {
-        //   throw new Error("API key is missing");
-        // }
+        if (!apiKey) {
+          throw new Error("API key is missing");
+        }
         const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`;
 
         const response = await fetch(url);
-        // if (!response.ok) {
-        //   throw new Error(`Error: ${response.statusText}`);
-        // }
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
 
         const data = await response.json();
         setArticles(data.articles);
