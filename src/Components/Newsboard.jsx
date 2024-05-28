@@ -59,6 +59,10 @@
 
 
 
+
+
+
+
 import { useEffect, useState } from "react";
 import Newsitem from "./Newsitem";
 
@@ -77,10 +81,8 @@ const Newsboard = ({ category }) => {
 
         const response = await fetch(url, {
           headers: {
-            // Add any additional headers here if needed
-            // Example:
-            // 'Upgrade': 'HTTP/2.0',
-            // 'Connection': 'upgrade'
+            'Upgrade': 'HTTP/2.0',
+            'Connection': 'upgrade'
           }
         });
         console.log("Response status:", response.status); // Add this line to log the response status
@@ -119,6 +121,3 @@ const Newsboard = ({ category }) => {
 };
 
 export default Newsboard;
-
-
-
