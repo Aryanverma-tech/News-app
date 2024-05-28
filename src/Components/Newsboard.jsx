@@ -18,7 +18,7 @@ const Newsboard = ({ category }) => {
 
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
+          throw new Error(`Error not find: ${response.statusText}`);
         }
 
         const data = await response.json();
